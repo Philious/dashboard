@@ -1,0 +1,35 @@
+:root {
+  // Primary
+--p-200: hsl(220, 12%, 12%);
+--p-300: hsl(220, 94%, 34%);
+--p-400: hsl(220, 65%, 56%);
+--p-500: hsl(220, 65%, 76%);
+--p-600: hsl(220, 65%, 90%);
+--p-700: hsl(220, 65%, 96%);
+
+// Greyscale
+--black: #000;
+--n-100: hsl(0,0%,10%);
+--n-200: hsl(0deg 0% 15%);
+--n-300: hsl(0deg 0% 30%);
+--n-400: hsl(0deg 0% 44%);
+--n-500: hsl(0, 0%, 64%);
+--n-600: hsl(0, 0%, 80%);
+--n-700: hsl(0, 0%, 90%);
+--white: #fff;
+
+--border: 0.0625rem solid var(--n-300);
+--background-color: var(--n-100);
+--header-color: var(--p-200);
+
+--font-size-large: 1.26rem;
+--font-size-normal: 1rem;
+--font-size-small: 0.75rem;
+
+@media (prefers-color-scheme: light) {
+  --background-color: var(--white);
+  --border: 0.0625rem solid var(--n-700);
+  --header-color: var(--p-700);
+}
+
+}

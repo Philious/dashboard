@@ -1,0 +1,22 @@
+{
+  "name": "interview-apptest",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Intervjuvuppgift",
+  "main": "server.js",
+  "scripts": {
+    "start": "npx tsx --env-file=../.env --watch  index.ts"
+  },
+  "author": "tech division",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.2"
+  },
+  "dependencies": {
+    "@types/cors": "^2.8.17",
+    "cors": "^2.8.5",
+    "express": "^5.0.1",
+    "uuid": "^11.0.3"
+  }
+}

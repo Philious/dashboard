@@ -21,6 +21,8 @@
 --border: 0.0625rem solid var(--n-300);
 --background-color: var(--n-100);
 --header-color: var(--p-200);
+--input-border: 0.0625rem solid var(--n-300);
+--context-menu-border-color: var(--n-200);
 
 --font-size-large: 1.26rem;
 --font-size-normal: 1rem;
@@ -31,7 +33,9 @@
 @media (prefers-color-scheme: light) {
   --background-color: var(--white);
   --border: 0.0625rem solid var(--n-700);
-  --header-color: var(--p-700);
+  --header-color: var(--n-700);
+  --input-border: 0.0625rem solid var(--n-600);
+  --context-menu-border-color: #fff;
 }
 
 }

@@ -31,7 +31,7 @@ defineEmits<{ (e: "setSelect", value: string): void; (e: "close"): void }>();
   opacity: 0;
 }
 .menu {
-  background-color: var(--n-100);
+  background-color: $background;
   position: absolute;
   transform: translateY(0.125rem);
   width: fit-content;
@@ -43,7 +43,7 @@ defineEmits<{ (e: "setSelect", value: string): void; (e: "close"): void }>();
   border-radius: 0 0 0.25rem 0.25rem;
   z-index: 1;
   $shadow-color: hsla(0, 0%, 0%, 0.25);
-  box-shadow: 0 0 0 1px var(--n-200), 0 3px 6px $shadow-color,
+  box-shadow: 0 0 0 1px $menu-border, 0 3px 6px $shadow-color,
     0 6px 12px $shadow-color, 0 12px 24px $shadow-color;
 }
 .menu-item {

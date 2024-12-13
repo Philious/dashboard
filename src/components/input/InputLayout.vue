@@ -37,11 +37,11 @@ const props = defineProps<{
   }
 }
 .input-wrapper {
-  background-color: var(--n-100);
+  background-color: $background;
   border-radius: 0.125rem;
-  border: 0.0625rem solid var(--n-300);
+  border: $input-border;
   box-sizing: border-box;
-  color: var(--n-500);
+  opacity: 0.87;
   height: 2.25rem;
   position: relative;
   transition: border-color 0.15s;

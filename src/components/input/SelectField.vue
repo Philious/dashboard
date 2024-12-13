@@ -77,7 +77,7 @@ const setSelected = (ev: string) => {
 @include fadeInUp;
 .input {
   background-color: transparent;
-  color: var(--n-500);
+  opacity: 0.87;
   height: 100%;
   padding: 0 0.75rem;
   width: 100%;

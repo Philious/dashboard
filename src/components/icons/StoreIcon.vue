@@ -21,9 +21,9 @@ const color = computed(() =>
     <rect
       v-for="(_, i) in new Array(props.state).fill(null)"
       x="2"
-      :y="22 - 4 * (i + 1)"
+      :y="22 - 5 * (i + 1)"
       width="20"
-      height="2"
+      height="4"
       rx="2"
     />
     <rect x="2" y="22" width="20" height="1" rx="2" />

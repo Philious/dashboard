@@ -9,11 +9,12 @@ defineEmits<{ (e: "setSelect", value: string): void; (e: "close"): void }>();
 
 <template>
   <div>
-    <ul class="menu">
+    <ul class="menu" data-id="menu-id">
       <li
-        v-for="o in options"
+        v-for="(o, i) in options"
         :key="o.label"
         class="menu-item"
+        :data-id="`menu-item-${i}`"
         @click="$emit('setSelect', o.id)"
       >
         {{ o.label }}

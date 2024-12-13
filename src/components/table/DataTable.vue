@@ -4,19 +4,21 @@ import { DataStoreType } from "@/stores/tableStore";
 import { TableOptions } from "@/types/tableTypes";
 import { getCell } from "@/utils/cellUtils";
 import spinner from "@/assets/spinner.svg";
-import { ref } from "vue";
+import { Ref, ref } from "vue";
 import Textfield from "@/components/input/TextField.vue";
 import SelectField from "../input/SelectField.vue";
 import { CategoryColorNames } from "@/types/enums";
 import { getCssVar, remToPx } from "@/utils/utils";
+import { handleScroll } from "@/utils/tableUtils";
 
 const props = defineProps<{
   store: DataStoreType;
   options: TableOptions;
 }>();
 
-const scrollContainer = ref<HTMLElement | null>(null);
+const scrollContainer: Ref<HTMLElement | null> = ref(null);
 const gridColumns = ref("auto");
+
 const getColumns = () => {
   gridColumns.value =
     remToPx(getCssVar("--mobile-max-width") ?? "0") < window.innerWidth
@@ -27,7 +29,7 @@ const getColumns = () => {
 window.onresize = getColumns;
 getColumns();
 
-const localCategoryFilter = ref(props.store.categoryFilter);
+const localCategoryFilter = ref(props.store?.categoryFilter ?? "");
 const categorySelectItems = [
   { id: "o0", label: "Clear", value: null },
   { id: "o1", label: "Red", value: CategoryColorNames.Red },
@@ -37,29 +39,27 @@ const categorySelectItems = [
   { id: "o5", label: "Blue", value: CategoryColorNames.Blue },
 ];
 
-const handleScroll = () => {
-  if (!scrollContainer.value) return;
-  const { scrollTop, scrollHeight, clientHeight } = scrollContainer.value;
-  console.log(scrollTop + clientHeight, scrollHeight);
-  if (scrollTop + clientHeight >= scrollHeight - 10) {
-    props.store.updateData();
-  }
-};
+const onScroll = () => handleScroll(scrollContainer, props.store.updateData);
 </script>
 <template>
   <div>
     <div class="filter-row">
-      <Textfield v-model="store.searchString" placeholder="Search" />
+      <Textfield
+        v-model="store.searchString"
+        placeholder="Search"
+        data-id="input-text-table-search"
+      />
       <div class="filter-group">
         <SelectField
           placeholder="Category"
           v-model="localCategoryFilter"
           :options="categorySelectItems"
+          data-id="input-select-table-filter"
           @set-select="(e) => store.categoryFilter = e as CategoryColorNames"
         />
       </div>
     </div>
-    <div @scroll="handleScroll" ref="scrollContainer" class="scroll-container">
+    <div @scroll="onScroll" ref="scrollContainer" class="scroll-container">
       <table
         :class="['table', !store.items.length ? 'no-items' : '']"
         v-if="store.items"

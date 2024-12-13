@@ -2,15 +2,18 @@
 import { IconEnum } from "@/types/enums";
 import InputLayout from "./InputLayout.vue";
 import { ref } from "vue";
+import { v4 } from "uuid";
 
 const model = defineModel<string>({ required: true });
 const props = defineProps<{
+  dataId: string;
   label?: string;
   helpText?: string;
   placeholder?: string;
   Icon?: IconEnum;
 }>();
 
+const inputId = v4();
 const helpText = ref(props.helpText);
 
 const onSpecialKeyboardEvent = (e: KeyboardEvent) => {
@@ -20,9 +23,12 @@ const onSpecialKeyboardEvent = (e: KeyboardEvent) => {
 };
 </script>
 <template>
-  <InputLayout :label="props.label" :help-text="helpText">
+  <InputLayout :id="inputId" :label="props.label" :help-text="helpText">
     <template v-slot:input>
       <input
+        :name="dataId"
+        :id="inputId"
+        :data-id="dataId"
         class="input"
         v-model="model"
         :placeholder="props.placeholder"

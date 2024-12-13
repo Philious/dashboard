@@ -10,11 +10,13 @@
 
 ## Run
 ### Front-end
-npm run dev  
+- npm run dev  
+- npm run test  
 
 ### Back-end
-cd backend  
-npm run start  
+- cd backend => npm run start  
+
+Adding network delay => .env => VITE_DELAY=<-delay->;  
 
 # Checklists
 ## Assignment
@@ -23,9 +25,9 @@ npm run start
 - Add filters for category and availability status, allowing users to select multiple filters at once.  
 ✔ Include a sort feature that allows users to sort products by price.  
 ✔ Infinite Scrolling or Pagination: Allow users to load additional products as they scroll down (infinite scroll) or add a “Load More” button at the end of the product list.  
-• Cache the product data so it doesn’t refetch on re-renders. Implement client-side caching.  
+x Cache the product data so it doesn’t refetch on re-renders. Implement client-side caching.  
 ✔ Dark Mode.  
-• Write unit tests.  
+✔ Write unit tests.  
 
 ## Issues
  • no more than 999 rows if table is a grid table is used.

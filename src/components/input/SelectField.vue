@@ -4,9 +4,11 @@ import { ref } from "vue";
 import ArrowIcon from "../icons/ArrowIcon.vue";
 import { MenuOption } from "@/types/tableTypes";
 import ContextMenu from "./ContextMenu.vue";
+import { v4 } from "uuid";
 
 const props = defineProps<{
   options: MenuOption[];
+  dataId: string;
   label?: string;
   helpText?: string;
   placeholder?: string;
@@ -14,6 +16,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{ (e: "setSelect", value: string | null): void }>();
 
+const inputId = v4();
 const visibleOptions = ref(props.options);
 const menuActive = ref(false);
 const selectedLabel = ref();
@@ -43,12 +46,14 @@ const setSelected = (ev: string) => {
 };
 </script>
 <template>
-  <InputLayout :label="props.label" :help-text="helpText">
+  <InputLayout :id="inputId" :label="props.label" :help-text="helpText">
     <template v-slot:input>
       <input
+        :id="inputId"
+        :data-id="dataId"
         @focus="toggleActive"
         @input="updateOptions"
-        class="input"
+        class="input select"
         v-model="selectedLabel"
         :placeholder="props.placeholder"
         :onkeydown="onSpecialKeyboardEvent"

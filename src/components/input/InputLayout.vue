@@ -1,21 +1,20 @@
 <script setup lang="ts">
-
 const props = defineProps<{
   label?: string;
   helpText?: string;
+  id: string;
 }>();
-
 </script>
 
 <template>
   <div class="container">
-    <span class="label">
+    <label class="label" :for="id">
       {{ props.label }}
-    </span>
+    </label>
     <div class="input-wrapper">
       <slot name="input" />
     </div>
-    <Transition name="help" >
+    <Transition name="help">
       <div v-if="props.helpText" class="help-text">{{ props.helpText }}</div>
     </Transition>
   </div>
@@ -29,7 +28,9 @@ const props = defineProps<{
     border-color: var(--n-500);
   }
   &.error {
-    .help-text { color: var(--error); }
+    .help-text {
+      color: var(--error);
+    }
     .input-wrapper {
       border-color: var(--error);
     }
@@ -43,23 +44,24 @@ const props = defineProps<{
   color: var(--n-500);
   height: 2.25rem;
   position: relative;
-  transition: border-color .15s;
-  width: 100%; 
+  transition: border-color 0.15s;
+  width: 100%;
 }
 
 .label,
 .help-text {
-  &:empty { display: none; }
+  &:empty {
+    display: none;
+  }
   color: var(--n-500);
   font-size: $small;
 }
 
 .help-enter-active,
-.help-enter-active {}
+.help-enter-active {
+}
 
 .help-enter-from,
 .help-leave-to {
-
 }
-
 </style>

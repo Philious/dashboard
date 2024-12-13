@@ -4,7 +4,7 @@ import cors from "cors";
 
 const app = express();
 const url = process.env.VITE_SERVER_PORT || 3000;
-
+const delay = parseInt(process.env.VITE_DELAY ?? '0')
 app.use(
   cors({
     origin: "http://localhost:5173",
@@ -18,6 +18,8 @@ app.use(express.json());
 app.listen(url, () => {
   console.log(`Server running at ${url}`);
 });
+
+
 
 /*
 type Resp = express.Response<ResponseType, Record<string, unknown>>;
@@ -38,11 +40,6 @@ app.get("/api/data", (req, res) => {
   const page = parseInt(req.query.page as string || "1", 10); // Default to page 1
   const limit = parseInt(req.query.limit as string || "10", 10); // Default to limit 10
 
-  if (isNaN(page) || page < 1 || isNaN(limit) || limit < 1) {
-    // res.status(400).send({ error: 'Invalid parameters' });
-    return;
-  }
-
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
 
@@ -53,7 +50,7 @@ app.get("/api/data", (req, res) => {
       data,
       hasMore: endIndex < tableData.data.length,
     });
-  }, 1000);
+  }, delay);
 });
 
 const tableData = {

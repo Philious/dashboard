@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import { TextCellProps } from '@/types/cellTypes';
+import { TextCellProps } from "@/types/cellTypes";
 
-const props = defineProps<TextCellProps>();
-// console.log('text: ', props.cellType, typeof props.value === 'string');
+defineProps<TextCellProps>();
 </script>
 
 <template>
-  <td class="cell text">{{ value }}</td>
+  <td class="td text">{{ value }}</td>
 </template>
 
 <style scoped lang="scss">
-  .cell { @include cell(flex-start) }
+.td {
+  @include cell(flex-start);
+}
 </style>

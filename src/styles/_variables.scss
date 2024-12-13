@@ -26,6 +26,8 @@
 --font-size-normal: 1rem;
 --font-size-small: 0.75rem;
 
+--mobile-max-width: 30rem;
+
 @media (prefers-color-scheme: light) {
   --background-color: var(--white);
   --border: 0.0625rem solid var(--n-700);

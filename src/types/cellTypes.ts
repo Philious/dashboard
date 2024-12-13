@@ -1,17 +1,17 @@
 import CategoryCell from '@/components/table/CategoryCell.vue'
 import CurrencyCell from '@/components/table/CurrencyCell.vue';
-import IntegerCell from '@/components/table/IntegerCell.vue';
+import AvailabilityCell from '@/components/table/AvailabilityCell.vue';
 import TextCell from '@/components/table/TextCell.vue';
 import { CellEnum } from './enums';
 
 export type CatagoryCellComponent = typeof CategoryCell;
 export type CurrencyCellComponent = typeof CurrencyCell;
-export type IntegerCellComponent = typeof IntegerCell;
+export type AvailabilityCellComponent = typeof AvailabilityCell;
 export type TextCellComponent = typeof TextCell;
 
 export type CellComponent<T extends CellEnum> = T extends CellEnum.Category ? CatagoryCellComponent :
   T extends CellEnum.Currency ? CurrencyCellComponent :
-  T extends CellEnum.Integer ? IntegerCellComponent :
+  T extends CellEnum.Availability ? AvailabilityCellComponent :
   T extends CellEnum.Text ? TextCellComponent :
   never
 
@@ -27,9 +27,9 @@ export type CurrencyCellProps = {
   value: number
 }
 
-export type IntegerCellProps = {
+export type AvailabilityCellProps = {
   id: string;
-  cellType: CellEnum.Integer;
+  cellType: CellEnum.Availability;
   value: number
 }
 
@@ -41,6 +41,6 @@ export type TextCellProps = {
 
 export type CellProps<T = CellEnum> = T extends CellEnum.Category ? CategoryCellProps :
   T extends CellEnum.Currency ? CurrencyCellProps :
-  T extends CellEnum.Integer ? IntegerCellProps :
+  T extends CellEnum.Availability ? AvailabilityCellProps :
   T extends CellEnum.Text ? TextCellProps :
   never

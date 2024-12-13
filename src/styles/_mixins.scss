@@ -5,3 +5,21 @@
   padding: 0 1.5rem;
   font-size: 0.875rem;
 }
+
+@mixin fadeInUp {
+  .fade-in-up-enter-active,
+  .fade-in-up-leave-active {
+    transition: transform .5s cubic-bezier(0.22, 1, 0.36, 1) opacity .5s linear;
+  }
+  .fade-in-up-enter-from,
+  .fade-in-up-leave-to {
+    opacity: 0;
+    transform: translateY(5rem);
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 30rem) {
+    @content;
+  }
+}

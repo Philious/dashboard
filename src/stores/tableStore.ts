@@ -1,35 +1,27 @@
 import { fetchData } from "@/api/api";
+import { CategoryColor, CategoryColorNames, CellEnum, StorageIconState } from "@/types/enums";
 import { Row, TableHeader } from "@/types/tableTypes";
-import { defineStore, Store } from "pinia";
-import { ref } from "vue";
+import { search, thinData } from "@/utils/tableUtils";
+import { toggle } from "@/utils/utils";
+import { defineStore } from "pinia";
+import { reactive, ref, watch } from "vue";
 
-export type DataStoreType = Store<'table', {
-  items: Row[],
-  currentPage: number,
-  isLoading: boolean;
-  hasMore: boolean;
-  headers: TableHeader[],
-  update: () => Promise<void>
-}>
+export type DataStoreType = ReturnType<typeof useDataStore>;
+
 
 export const useDataStore = defineStore('table', () => {
   const items = ref<Row[]>([]);
+  const internalItems = ref<Row[]>([]);
   const currentPage = ref(1);
   const isLoading = ref(false);
   const hasMore = ref(true);
   const headers = ref<TableHeader[]>([]);
-  /*
-  const update = async (page: number, limit: number) => {
-    isLoading.value = true;
-    const response = await fetchData(page, limit);
-    console.log(response);
-    if (response) {
-      tableData.value = [...tableData.value, ...response.data];
-      headers.value = response.headers;
-    }
-  };
-*/
-  const update = async () => {
+  const searchString = ref('');
+  const categoryFilter = ref<CategoryColorNames | ''>('');
+  const priceFilter = ref('');
+  const stockFilter = ref('');
+
+  const updateData = async () => {
     if (isLoading.value || !hasMore.value) return;
 
     isLoading.value = true;
@@ -37,9 +29,10 @@ export const useDataStore = defineStore('table', () => {
       const response = await fetchData(currentPage.value, 20);
       if (!response?.data) return;
       const data = response.data;
+      console.log(response);
       headers.value = response.headers;
       if (data.length > 0) {
-        items.value = [...items.value, ...data];
+        internalItems.value = [...items.value, ...data];
         currentPage.value++;
       } else {
         hasMore.value = false;
@@ -51,5 +44,21 @@ export const useDataStore = defineStore('table', () => {
     }
   };
 
-  return { items, currentPage, isLoading, headers, hasMore, update }
+  const priceToggle = toggle(true);
+  const sortPrice = (dir?: boolean) => {
+    let ascending: boolean = dir ?? priceToggle();
+    items.value.sort((a, b) => {
+      const first = a.cells.find(c => c.cellType === CellEnum.Currency)?.value ?? 0;
+      const second = b.cells.find(c => c.cellType === CellEnum.Currency)?.value ?? 0
+      return (ascending ? first > second : first < second) ? 1 : -1
+    });
+  }
+
+  watch([internalItems, searchString, categoryFilter, priceFilter, stockFilter], ([currItems, currSearch, currCat, currPrice, currStock]) => {
+    if (currSearch || currCat) items.value = thinData(currItems, currSearch, currCat);
+    else items.value = currItems;
+  })
+
+  return { items, currentPage, isLoading, hasMore, headers, searchString, categoryFilter, priceFilter, stockFilter, updateData, sortPrice }
 })
+

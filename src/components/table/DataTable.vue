@@ -1,91 +1,213 @@
 <script setup lang="ts">
-import HeaderCell from '@/components/table/HeaderCell.vue';
-import { DataStoreType, useDataStore } from '@/stores/tableStore';
-import { Row, TableHeader, TableOptions } from '@/types/tableTypes';
-import { getCell } from '@/utils/cellUtils';
-
-import { onBeforeMount, ref } from 'vue';
+import HeaderCell from "@/components/table/HeaderCell.vue";
+import { DataStoreType } from "@/stores/tableStore";
+import { TableOptions } from "@/types/tableTypes";
+import { getCell } from "@/utils/cellUtils";
+import spinner from "@/assets/spinner.svg";
+import { ref } from "vue";
+import Textfield from "@/components/input/TextField.vue";
+import SelectField from "../input/SelectField.vue";
+import { CategoryColorNames } from "@/types/enums";
+import { getCssVar, remToPx } from "@/utils/utils";
 
 const props = defineProps<{
   store: DataStoreType;
   options: TableOptions;
 }>();
 
-/*
-const limit = ref(20)
-onBeforeMount(() => {
-  const parent = document.getElementById('app');
-  let blockPadding = 0
-  if (parent) {
-    blockPadding += parseInt(window.getComputedStyle(parent).getPropertyValue('padding-top'))
-    blockPadding += parseInt(window.getComputedStyle(parent).getPropertyValue('padding-bottom'))
-  }
-
-  limit.value = Math.floor(((parent?.clientHeight ?? 40 * 20) - blockPadding) / 40);
-  console.log(limit.value);
-})
-*/
-console.log(props.store)
 const scrollContainer = ref<HTMLElement | null>(null);
+const gridColumns = ref("auto");
+const getColumns = () => {
+  gridColumns.value =
+    remToPx(getCssVar("--mobile-max-width") ?? "0") < window.innerWidth
+      ? props.options.columnTemplate ??
+        props.store.headers.map((_) => "auto").join(" ")
+      : "1fr";
+};
+window.onresize = getColumns;
+getColumns();
+
+const localCategoryFilter = ref(props.store.categoryFilter);
+const categorySelectItems = [
+  { id: "o0", label: "Clear", value: null },
+  { id: "o1", label: "Red", value: CategoryColorNames.Red },
+  { id: "o2", label: "Orange", value: CategoryColorNames.Orange },
+  { id: "o3", label: "Yellow", value: CategoryColorNames.Yellow },
+  { id: "o4", label: "Green", value: CategoryColorNames.Green },
+  { id: "o5", label: "Blue", value: CategoryColorNames.Blue },
+];
 
 const handleScroll = () => {
   if (!scrollContainer.value) return;
-
   const { scrollTop, scrollHeight, clientHeight } = scrollContainer.value;
+  console.log(scrollTop + clientHeight, scrollHeight);
   if (scrollTop + clientHeight >= scrollHeight - 10) {
-    props.store.update();
+    props.store.updateData();
   }
 };
-
 </script>
 <template>
-  <div @scroll="handleScroll" ref="scrollContainer" class="scroll-container">
-  <table v-if="store.items" :style="{'grid-template-columns': options.columnTemplate ?? store.headers.map(_ => 'auto').join(' ') }">
-    <thead>
-      <tr>
-        <HeaderCell v-for="header in store.headers"
-          :key="header.id"
-          v-bind="header"
+  <div>
+    <div class="filter-row">
+      <Textfield v-model="store.searchString" placeholder="Search" />
+      <div class="filter-group">
+        <SelectField
+          placeholder="Category"
+          v-model="localCategoryFilter"
+          :options="categorySelectItems"
+          @set-select="(e) => store.categoryFilter = e as CategoryColorNames"
         />
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="row in store.items"
-        :key="row.rowId"
-        :id="row.rowId"
+      </div>
+    </div>
+    <div @scroll="handleScroll" ref="scrollContainer" class="scroll-container">
+      <table
+        :class="['table', !store.items.length ? 'no-items' : '']"
+        v-if="store.items"
       >
-      <component v-for="cell in row.cells" :key="row.rowId" :is="getCell(cell.cellType)" v-bind="cell" />
-      </tr>
-    </tbody>
-    <tfoot v-if="false">
-      <tr>
-        <td></td>
-      </tr>
-    </tfoot>
-  </table>
-</div>
+        <thead class="thead">
+          <tr class="thead-row tr">
+            <HeaderCell
+              v-for="header in store.headers"
+              :key="header.id"
+              v-bind="header"
+              :sort="header.id === 'price' ? store.sortPrice : () => {}"
+            />
+          </tr>
+        </thead>
+        <tbody class="tbody">
+          <tr
+            class="tbody-row tr"
+            v-for="row in store.items"
+            :key="row.rowId"
+            :id="row.rowId"
+          >
+            <template v-for="(cell, index) in row.cells" :key="row.rowId">
+              <Transition name="cell" appear>
+                <component
+                  :data-header="store.headers[index].title"
+                  :is="getCell(cell.cellType)"
+                  v-bind="cell"
+                />
+              </Transition>
+            </template>
+          </tr>
+        </tbody>
+        <tfoot class="tfoot">
+          <tr class="tfoot-row tr">
+            <Transition name="cell">
+              <td v-if="store.isLoading" class="tfoot-cell">
+                <img class="loading-spinner" :src="spinner" />
+              </td>
+            </Transition>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
 </template>
 
 <style scoped lang="scss">
-  .scroll-container {
-    height: 80vh;
-    overflow-y: scroll;
-    border-radius: 0.25rem;
-  }
-  thead,
-  tbody,
-  tfoot,
-  tr {
-    display: contents;
-  }
+.filter-row {
+  display: flex;
+  margin-bottom: 0.5rem;
+  gap: 0.5rem;
+}
+.scroll-container {
+  height: 80vh;
+  overflow-y: scroll;
+  border-radius: 0.25rem;
+}
 
-  table {
-    display: grid;
-    background-color: $background;
-    border-radius: 0.25rem;
+.table {
+  display: grid;
+  grid-template-columns: v-bind(gridColumns);
+  background-color: $background;
+  border-radius: 0.25rem;
+  min-height: 100%;
+  place-content: start;
+  &.no-items {
+    place-content: center;
   }
-  th, td {
-    height: 2.5rem;
+}
+
+thead,
+tbody,
+tfoot,
+tr {
+  display: contents;
+}
+
+th,
+td {
+  height: 2.5rem;
+}
+th,
+tr:not(:last-child) td {
+  border-bottom: $border;
+}
+
+.tfoot-cell {
+  display: grid;
+  place-content: center;
+  place-self: center;
+  height: 6rem;
+  grid-column: 1 / 5;
+  position: sticky;
+  bottom: 0;
+}
+
+.no-items .tfoot-cell {
+  height: 100%;
+}
+
+.loading-spinner {
+  width: 3rem;
+  height: 3rem;
+  place-self: center;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@include mobile {
+  .table {
+    .thead {
+      display: none;
+    }
+    .tr {
+      display: grid;
+      grid-template-columns: 1fr;
+      height: min-content;
+    }
+    .tbody tr {
+      padding: 0.5rem 0;
+      &:not(:last-child) {
+        border-bottom: $border;
+      }
+      td {
+        display: flex;
+        height: 2rem;
+        justify-content: space-between;
+        border-bottom: 0;
+        &:before {
+          content: attr(data-header);
+          margin-right: auto;
+        }
+      }
+    }
   }
-  th, tr:not(:last-child) td { border-bottom: $border };
+}
+
+.cell-enter-active,
+.cell-leave-active {
+  transition: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-property: height transform opacity;
+}
+.cell-enter-from,
+.cell-leave-to {
+  opacity: 0;
+  height: 0;
+  transform: translateY(50%);
+  .loading-spinner {
+    transform: scale(0);
+  }
+}
 </style>

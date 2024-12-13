@@ -25,3 +25,22 @@ export const debounce = <T>(func: (...args: T[]) => void, delay: number): ((...a
     }, delay);
   };
 }
+
+export const toggle = (start: boolean) => {
+  let toggleValue = start;
+  return () => { toggleValue = !toggleValue; return toggleValue; }
+}
+
+export const getCssVar = (variable: string) => getComputedStyle(document.body).getPropertyValue(variable);
+
+export const remToPx = (val: string) => {
+  const parsVal = parseInt(val);
+  if (val.indexOf('px') > 0) {
+
+    return parsVal;
+  } else {
+    const mainSize = parseInt(getComputedStyle(document.body).getPropertyValue('font-size'));
+
+    return mainSize * parsVal;
+  }
+}

@@ -1,15 +1,15 @@
 import { CellComponent } from "@/types/cellTypes";
-import { CellEnum } from "@/types/enums";
+import { CellEnum, StorageIconState } from "@/types/enums";
 import CategoryCell from '@/components/table/CategoryCell.vue';
 import CurrencyCell from '@/components/table//CurrencyCell.vue';
-import IntegerCell from '@/components/table//IntegerCell.vue';
+import AvailabilityCell from '@/components/table/AvailabilityCell.vue';
 import TextCell from '@/components/table//TextCell.vue';
 
 export const getCell = <T extends CellEnum>(type: T): CellComponent<T> => {
   const cellMap = {
     [CellEnum.Category]: CategoryCell,
     [CellEnum.Currency]: CurrencyCell,
-    [CellEnum.Integer]: IntegerCell,
+    [CellEnum.Availability]: AvailabilityCell,
     [CellEnum.Text]: TextCell,
   };
 
@@ -19,6 +19,8 @@ export const getCell = <T extends CellEnum>(type: T): CellComponent<T> => {
 export const cellAlign = (type: CellEnum) => ({
   [CellEnum.Category]: 'flex-start',
   [CellEnum.Currency]: 'flex-end',
-  [CellEnum.Integer]: 'flex-start',
+  [CellEnum.Availability]: 'center',
   [CellEnum.Text]: 'flex-start',
 }[type])
+
+export const availability = (val: number) => val > 1000 ? StorageIconState.Full : val > 500 ? StorageIconState.Ok : val > 20 && val > 0 ? StorageIconState.Low : StorageIconState.Empty

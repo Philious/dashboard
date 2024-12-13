@@ -15,3 +15,9 @@ export type Row = {
 export type TableOptions = {
   columnTemplate?: string;
 }
+
+export type MenuOption = {
+  id: string;
+  label: string,
+  value: string | null
+}

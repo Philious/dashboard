@@ -47,744 +47,79 @@ app.get("/api/data", (req, res) => {
   const endIndex = page * limit;
 
   const data = tableData.data.slice(startIndex, endIndex);
-
-  res.json({
-    headers: tableData.headers,
-    data,
-    hasMore: endIndex < tableData.data.length,
-  });
+  setTimeout(() => {
+    res.json({
+      headers: tableData.headers,
+      data,
+      hasMore: endIndex < tableData.data.length,
+    });
+  }, 1000);
 });
 
-// Seeded startdata
-// notes # { id: string, title: string, content: string, catalog: string, tags: string[], createdAt: string, updatedAt: string }
 const tableData = {
   "headers": [
-    { id: 'product', cellType: 'text', title: "Product" },
-    { id: 'price', cellType: 'currency', title: "Price" },
-    { id: 'category', cellType: 'category', title: "Category" },
-    { id: 'stock', cellType: 'integer', title: "Stock" }
+    {
+      "id": "product",
+      "cellType": "text",
+      "title": "Product"
+    },
+    {
+      "id": "price",
+      "cellType": "currency",
+      "title": "Price"
+    },
+    {
+      "id": "category",
+      "cellType": "category",
+      "title": "Category"
+    },
+    {
+      "id": "stock",
+      "cellType": "availability",
+      "title": "Stock"
+    }
   ],
   "data": [
     {
-      "rowId": "6759ff974ef517da360b8314",
+      "rowId": "675c0c3ea29cda9c6996d317",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Sultraxin"
+          "value": "Musanpoly"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 948.21
+          "value": 1215.39
         },
         {
           "id": "category",
           "cellType": "category",
           "value": [
-            "blue",
+            "red",
             "green"
           ]
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 556
+          "cellType": "availability",
+          "value": 352
         }
       ]
     },
     {
-      "rowId": "6759ff97fe7c160645823b8a",
+      "rowId": "675c0c3eacda10227c0a5342",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Digifad"
+          "value": "Immunics"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 2850.09
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1091
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff975b9de58f2602215b",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Comcur"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 695.45
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "yellow",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 685
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97bfee99f87ffaba48",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Memora"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2448.65
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1050
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97b1bca1c5333ca819",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Nebulean"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1936.98
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green",
-            "green",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 41
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97b80dea1e03c7a251",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Tubalum"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2771.58
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange",
-            "yellow",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 563
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff976205122c851e5a90",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Darwinium"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2376.1
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1392
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97f0bf1085088ad8ce",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Quonata"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1713.5
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 442
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9733c93c908e4b61df",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Imant"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 222.16
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1309
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97c196751d1d7ea91f",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Elentrix"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2519.24
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 309
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97cd75630b56ba2d03",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Gadtron"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 823.29
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1099
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97c7203ab0d519a3e0",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Billmed"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2942.91
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1181
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97abd9eb2002e483d6",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Centree"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1312.51
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green",
-            "red",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 191
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9727eb398ca08fdb45",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Quizmo"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2861.15
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1364
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff973ccafce75b10d8e1",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Deminimum"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 357.57
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green",
-            "green",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 541
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff973b178e481013023e",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Waretel"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 707.28
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "yellow",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 890
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97af1ac2e7763edd15",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Snowpoke"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 735.16
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1232
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97436b862141011a68",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Cubix"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2733.94
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 648
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97768630bcd06791a3",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Printspan"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1538.35
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 132
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9796b36edb46c813bf",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Avenetro"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2555.19
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green",
-            "blue",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1112
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97f19c85c132bb8bb4",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Bedder"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1868.78
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red",
-            "red",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 9
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97f3fc56ebc4206d04",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Isotrack"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1459.65
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red",
-            "orange",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 868
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9763bf492a3fc4537e",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Rockabye"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2457.22
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 171
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97e0c84a5287dde72f",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Crustatia"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1322.22
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 678
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97a5fbedfd3c276a89",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Idealis"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2957.49
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue",
-            "yellow"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 91
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff970ed929e7bca969d2",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Artiq"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 974.74
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 578
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97243fca3a67917c4e",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Keengen"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2614.29
+          "value": 2108.35
         },
         {
           "id": "category",
@@ -795,2318 +130,23 @@ const tableData = {
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 191
+          "cellType": "availability",
+          "value": 1020
         }
       ]
     },
     {
-      "rowId": "6759ff976eeae3bd580ab975",
+      "rowId": "675c0c3e4b53cce3902b0aec",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Qnekt"
+          "value": "Letpro"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 784.68
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 838
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff976763368dd3cbdfc8",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Kage"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2326.39
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green",
-            "yellow",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1042
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff975fb146e020a85682",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Urbanshee"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1984.71
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "yellow",
-            "orange",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 473
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9797b459cb649fc54d",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Realmo"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1818.27
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 661
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff970d75300f33f9bb76",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Confrenzy"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 545.35
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 598
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97c60ffddcde97febc",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Norsul"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 181.78
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "yellow",
-            "red",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 38
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97c18293301dfc3c07",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Overfork"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2260.9
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1436
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97fbd285a4fc4b47f9",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Supremia"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 620.16
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "yellow",
-            "orange",
-            "yellow"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 50
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97080074d9270efb31",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Toyletry"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2816.37
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1401
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97c7b7046bd42d764c",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Tsunamia"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1549.73
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue",
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 51
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97e9b7966848d15b30",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Asimiline"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 637.28
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue",
-            "blue",
-            "green"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1424
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97214359c3923a0d80",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Andershun"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1474.22
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green",
-            "blue",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 665
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97c35b169ef58245e7",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Zilidium"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 853.58
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue",
-            "red",
-            "yellow"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 294
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9768d61b85ba34c3e2",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Talendula"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1111.38
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue",
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 738
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff977145c577caa61e54",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Senmao"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1037.82
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 550
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff977273e9ad82ef19ed",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Velity"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1234.4
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 769
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97d9754c787a4f84a0",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Zerbina"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2553.6
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1099
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff971cd8be2936d0f2e2",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Omnigog"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1262.22
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green",
-            "yellow"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 695
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9779fe71fe7a8aaabf",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Extragen"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2927.08
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 881
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff975d17a0b2ce1980e6",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Songlines"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2566.12
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange",
-            "green"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 487
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97b8cb524bd205e120",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Techade"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2860.73
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 151
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff973f9db73adebc41fa",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Pearlessa"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 438.15
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 400
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff975d14e9dd4f555619",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Intrawear"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1593.73
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red",
-            "blue",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 109
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97de2aabc1fce47b7a",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Affluex"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 253.12
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green",
-            "blue",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 122
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff970832b93c71e69ea1",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Ontality"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2036.4
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 860
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff976970c962ca375ddd",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Enquility"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2271.67
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 454
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff972c1e1a1be0aa0106",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Accupharm"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1029.81
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1087
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff979070cfef951911c0",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Bittor"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2701.35
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 206
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97267f4513eb533a05",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Deepends"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 445.86
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red",
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 175
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9793927c81709c5002",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Cytrex"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 600.79
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue",
-            "yellow",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1099
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97c88c903f6c0bf39a",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Voratak"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1274.89
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue",
-            "blue",
-            "yellow"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 928
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9755030d01c45b8f9e",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Dognost"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2783.42
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1397
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9731b749a90b8ed9c4",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Musix"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 942.26
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1166
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff976215292b1808c0c0",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Enaut"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 433.74
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green",
-            "green"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 144
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9713b85b6e29b82362",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Comcubine"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1388.73
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 840
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97c6dc3e9f6fb07f48",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Eplode"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1520.03
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1087
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97bd88ec56dded3139",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Apexia"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 773.01
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 102
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff971a5437cb4ce9bcf3",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Marvane"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1999.03
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue",
-            "blue",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 712
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff970046c27f22221c2c",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Wrapture"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2233.81
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue",
-            "orange",
-            "green"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1285
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff979214d91bf7698ada",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Terrago"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 585.44
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 930
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97dd5465184ffd64bc",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Navir"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2226.55
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "yellow",
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1339
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9769c72559bccecde9",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Exozent"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2047.83
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 290
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97a41d17ffcdc14f97",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Wazzu"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1665.54
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red",
-            "green",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 692
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97bac695dd8830a8d2",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Fortean"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2554.25
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange",
-            "blue",
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1008
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97592cdb754a9a83b7",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Geofarm"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 308.86
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red",
-            "blue",
-            "green"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1024
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff979a1bba0260df45d6",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Lunchpod"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 250.44
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange",
-            "yellow",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 936
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9706419c9f8da6ac80",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Verbus"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1733.64
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 597
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97696e0daf0be000ab",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Nitracyr"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1543.16
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange",
-            "yellow",
-            "yellow"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 781
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff976d3ede7fc5ddb735",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Visalia"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 880.64
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1112
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff971dd4d6829dbd0c1b",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Otherside"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1671.74
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1072
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9768970e01ed261caf",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Zappix"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2754.8
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red",
-            "green",
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 806
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9724160711d8877cf1",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Pyrami"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 237.38
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "yellow",
-            "red",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 199
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97df40cd1d8da55be5",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Digial"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1262.71
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1323
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9732204871c106aafd",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Sloganaut"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 32.46
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 606
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff979ce674bf4f57f8c3",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Interloo"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2654.83
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green",
-            "red",
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1081
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97cf6847039fb91e95",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Goko"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1121.97
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1422
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97fc8db7cf384db8c3",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Synkgen"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 837.91
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1292
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97805ef461c36f25ab",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Slax"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2990.05
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1138
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97e1b0a07de2aa0a58",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Opticon"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2842.56
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1094
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97882e6d474ed92c81",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Tetratrex"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1011.63
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red",
-            "green"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 967
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff974464ec2153431d8f",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Junipoor"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2773.4
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1370
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97a65b75eb8bbe1bfc",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Deviltoe"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 746.75
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 816
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff975b0de5d207460118",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Prosely"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 688.26
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red",
-            "yellow",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 100
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97c1ecc7eb61ecff6d",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Isologics"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 349.67
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red",
-            "yellow",
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 877
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97fff926714c44df63",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Ecraze"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1684.8
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "yellow",
-            "yellow"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 253
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff971ae23a6e39e5be74",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Singavera"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 268.84
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 243
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97397c11fffd876e03",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Zillatide"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 689.01
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red",
-            "yellow"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 741
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97a7406905b93f55ca",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Grok"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 69.4
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red",
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1439
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97cd269e8777594b5f",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Filodyne"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2326.17
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 978
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff970f2432ffacad4e71",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Tribalog"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2493.68
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange",
-            "orange",
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 611
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97be0a496cd72cc772",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Andryx"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2189.03
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange",
-            "green"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 472
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9704a29e8488f9dd01",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Rodeocean"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2697.87
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange",
-            "orange",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 344
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff976bd39bbad0d041fa",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Kidstock"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2925.72
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "yellow",
-            "orange",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 622
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9749be3338069ba7fa",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Remotion"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2469.48
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 217
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97015b3ccbb8e3c215",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Plexia"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 840.07
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 836
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff978869e2ca5d918b84",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Bitrex"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1572.58
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red",
-            "green"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 237
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff970dd55801ba24fab4",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Hawkster"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 622.04
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 522
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97febf61dc3ca49491",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Combogen"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2836.99
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 590
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97a8904caa90612916",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Homelux"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 216.47
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 673
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff978533b891d643b0d5",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Strozen"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2339.81
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 632
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97eb43ea45ffe08af1",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Apex"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2728.38
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue",
-            "yellow",
-            "green"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 293
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97236e05f87f5210ac",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Sensate"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 457.34
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1084
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff978bd24bef5fd3a4ba",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Pyramis"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2759.95
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 479
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff975148d0f0d772ff99",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Neptide"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 232
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 455
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97e3e565d7bcbf268a",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Zaya"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2522.97
+          "value": 1636.37
         },
         {
           "id": "category",
@@ -3117,133 +157,51 @@ const tableData = {
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 1364
+          "cellType": "availability",
+          "value": 1455
         }
       ]
     },
     {
-      "rowId": "6759ff976f7a43bfa5160a68",
+      "rowId": "675c0c3e0c0634c532f4f61a",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Jetsilk"
+          "value": "Kiosk"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 1208.17
+          "value": 900.93
         },
         {
           "id": "category",
           "cellType": "category",
           "value": [
-            "red",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 154
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9763817494e9591dd4",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Bleeko"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 760.34
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 251
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97c10cecdd3b766323",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Opticall"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 268.83
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green",
-            "red",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 345
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff971beedf7fd0f27dbf",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Nexgene"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 672.44
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue",
+            "yellow",
             "green"
           ]
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 577
+          "cellType": "availability",
+          "value": 1251
         }
       ]
     },
     {
-      "rowId": "6759ff97fc0143b808b9cadb",
+      "rowId": "675c0c3e19bf6617a02cd4aa",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Zogak"
+          "value": "Xerex"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 2095.95
+          "value": 2153.52
         },
         {
           "id": "category",
@@ -3254,598 +212,13 @@ const tableData = {
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 1152
+          "cellType": "availability",
+          "value": 535
         }
       ]
     },
     {
-      "rowId": "6759ff97e0cf8f4dcf53663d",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Zilphur"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2726.13
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "yellow",
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1453
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97f2a7c095b568e024",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Opticom"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1209.03
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1140
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97ff25a4ea7ad19a9d",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Neurocell"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2278.69
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange",
-            "red",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1109
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff976dab502a7d2d52c5",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Eclipsent"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1842.27
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1163
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9760b226fb644cc871",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Retrotex"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1235.87
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue",
-            "yellow"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 562
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97e2730f75a1ced03e",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Interfind"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1047.26
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "yellow",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1440
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97435a7eed1312c4c2",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Parcoe"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2257.13
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green",
-            "blue",
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 936
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff970dac67f60c0128b6",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Ovation"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2465.34
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue",
-            "green",
-            "green"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 95
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff977fd183c5718f72c8",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Avit"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2672.36
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1039
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97a70c51f474d00a33",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Comtrail"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1268.56
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1402
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff977cf16ada0ad09593",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Utara"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1034.2
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green",
-            "green",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 281
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff972ed3f62b9da6b640",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Zolarity"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1107.71
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green",
-            "orange",
-            "green"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 894
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff971338a47225c43611",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Turnling"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2490.96
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange",
-            "yellow",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 12
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97eb4fd18337b42f49",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Automon"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 66.8
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 483
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9728066045e2ca182a",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Genekom"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1110.18
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 621
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97c8091462648bd0ad",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Illumity"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1628.18
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "yellow",
-            "orange",
-            "yellow"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 70
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9751040ad453c08127",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Zosis"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1729.77
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "yellow"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 269
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff974999b0baa1af6480",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Digiprint"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1235.03
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 447
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97bfdd94edcecb998b",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Mixers"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1064.91
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "yellow",
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1027
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff973ffb4bae99f5faa6",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Fanfare"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2484.43
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 700
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9733a1c7b78dd5fc52",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Quinex"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1724.81
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 500
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff978506210a3b9b5f77",
+      "rowId": "675c0c3e19855ed4cfdfa52f",
       "cells": [
         {
           "id": "product",
@@ -3855,308 +228,175 @@ const tableData = {
         {
           "id": "price",
           "cellType": "currency",
-          "value": 2698.67
+          "value": 1657.1
         },
         {
           "id": "category",
           "cellType": "category",
           "value": [
             "yellow",
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1222
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e63f6fe8dde47ad91",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Gallaxia"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1648.63
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange",
             "red"
           ]
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 0
+          "cellType": "availability",
+          "value": 307
         }
       ]
     },
     {
-      "rowId": "6759ff978a34e47255711493",
+      "rowId": "675c0c3ee8b202407a58c3ee",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Flumbo"
+          "value": "Deviltoe"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 2282.81
+          "value": 2424.99
         },
         {
           "id": "category",
           "cellType": "category",
           "value": [
+            "orange",
             "green"
           ]
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 378
+          "cellType": "availability",
+          "value": 1373
         }
       ]
     },
     {
-      "rowId": "6759ff972b7f68592819235d",
+      "rowId": "675c0c3e480464afeb716f4f",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Xth"
+          "value": "Ronelon"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 1089.78
+          "value": 1514.4
         },
         {
           "id": "category",
           "cellType": "category",
           "value": [
-            "green",
-            "red",
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1056
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97d6cfd88bf5180493",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Lovepad"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2673.29
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green",
-            "red",
-            "green"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 374
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff975c63c5609fa70086",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Bicol"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1792.67
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 39
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97f026b9f6a2270cf6",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Twiggery"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2703.93
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "yellow"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 67
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97afb75ac9a8e747dc",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Rameon"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2734.73
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1285
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9721576c704ae4f468",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Exodoc"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 774.2
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 728
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97d6d2d2b750030204",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Newcube"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2017.03
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 175
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff977f8141420a52336e",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Mantrix"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2683.68
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "yellow",
             "yellow",
             "orange"
           ]
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 1189
+          "cellType": "availability",
+          "value": 633
         }
       ]
     },
     {
-      "rowId": "6759ff970064da379618bed9",
+      "rowId": "675c0c3e1134e31036e4459c",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Krog"
+          "value": "Zorromop"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 969.17
+          "value": 2145.16
         },
         {
           "id": "category",
           "cellType": "category",
           "value": [
-            "green"
+            "yellow",
+            "red"
           ]
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 620
+          "cellType": "availability",
+          "value": 405
         }
       ]
     },
     {
-      "rowId": "6759ff97be7608db3a31abcc",
+      "rowId": "675c0c3e8ee1e9b57b656547",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Zolarex"
+          "value": "Enthaze"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 516.68
+          "value": 1123.87
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "blue",
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 563
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e08c4319693dc9e86",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Omnigog"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2223.67
         },
         {
           "id": "category",
@@ -4167,23 +407,23 @@ const tableData = {
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 1359
+          "cellType": "availability",
+          "value": 1477
         }
       ]
     },
     {
-      "rowId": "6759ff97bc608a9457d3eacd",
+      "rowId": "675c0c3e8144c9e3d37cc42e",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Noralex"
+          "value": "Comstruct"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 1604.21
+          "value": 2243.31
         },
         {
           "id": "category",
@@ -4192,40 +432,13 @@ const tableData = {
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 347
+          "cellType": "availability",
+          "value": 145
         }
       ]
     },
     {
-      "rowId": "6759ff97f291ada068683504",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Mediot"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1309.01
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 81
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff971a756d73ce975adb",
+      "rowId": "675c0c3eb7f7ac48cd69332a",
       "cells": [
         {
           "id": "product",
@@ -4235,611 +448,92 @@ const tableData = {
         {
           "id": "price",
           "cellType": "currency",
-          "value": 881.18
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "yellow"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1343
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97cc3598ee6fd02d4e",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Fibrodyne"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2373.38
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1411
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97278dfdf15ddbe345",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Twiist"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 696.7
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1357
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97dbd9c2694ffeaef2",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Myopium"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 977.17
+          "value": 2640.75
         },
         {
           "id": "category",
           "cellType": "category",
           "value": [
             "blue",
-            "green",
-            "yellow"
+            "green"
           ]
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 642
+          "cellType": "availability",
+          "value": 541
         }
       ]
     },
     {
-      "rowId": "6759ff97c73303692126eb24",
+      "rowId": "675c0c3efd4d9df8d1679dbd",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Anocha"
+          "value": "Gluid"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 2608.6
+          "value": 729.48
         },
         {
           "id": "category",
           "cellType": "category",
           "value": [
             "yellow",
-            "yellow"
+            "green"
           ]
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 228
+          "cellType": "availability",
+          "value": 1028
         }
       ]
     },
     {
-      "rowId": "6759ff971a9f3273eb87e929",
+      "rowId": "675c0c3e494039a20c361c1d",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Uberlux"
+          "value": "Bedder"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 1566.09
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red",
-            "orange",
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1436
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97bec680a98b1636f9",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Quizka"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1760.08
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange",
-            "yellow",
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 760
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97dc99d2380002c2c3",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Eventix"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 898.75
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red",
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1438
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97292912f7185778fa",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Sarasonic"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1157.67
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1314
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9787c87bef1bcfcfd0",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Egypto"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 723.74
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green",
-            "orange",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1216
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff979e7256163e36c058",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Flotonic"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1273.92
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "yellow"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1342
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff979d8570e14b13dde5",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Translink"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2725.47
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 221
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff978387838abeabb6ed",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Emergent"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 469.15
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 117
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97cc14e74f6e6339c8",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Oceanica"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1001.79
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange",
-            "orange"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 843
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff973c8e947f71cd9eff",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Candecor"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2561.34
+          "value": 777.53
         },
         {
           "id": "category",
           "cellType": "category",
           "value": [
             "yellow",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1447
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97e19023f0f5905bb9",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Zenco"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1007.73
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "green",
+            "blue",
             "orange"
           ]
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 747
+          "cellType": "availability",
+          "value": 35
         }
       ]
     },
     {
-      "rowId": "6759ff9723dac6640b11a015",
+      "rowId": "675c0c3eaa9b77125c6de209",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Futurize"
+          "value": "Ontagene"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 954.93
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red",
-            "green",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 171
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff976712fd3f7c7f52a7",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Zaphire"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2068.8
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1075
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff973b7dd793f8ac99f6",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Baluba"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1319.82
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1493
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff978d0c08fc2e525c4b",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Medcom"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 210.49
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "yellow"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1073
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff9709fc184d64dd61a8",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Inventure"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1125.34
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange",
-            "red",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1430
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97fe37c96e98ccff4d",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Talae"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2616.98
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "red",
-            "red"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 501
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff972a37de40807e4925",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Exosis"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2756.13
+          "value": 1821.41
         },
         {
           "id": "category",
@@ -4850,23 +544,105 @@ const tableData = {
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 1246
+          "cellType": "availability",
+          "value": 473
         }
       ]
     },
     {
-      "rowId": "6759ff97e34c43525b36774b",
+      "rowId": "675c0c3eea691b7f417193fa",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Ultrimax"
+          "value": "Savvy"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 1739.51
+          "value": 1079.82
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 965
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ef19fe00cb78db4ee",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Empirica"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1477.35
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow",
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 397
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e8ffa4eefd5b2241e",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Endicil"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2008.76
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 433
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3eef5714873cb7afdc",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Eargo"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2408.51
         },
         {
           "id": "category",
@@ -4875,69 +651,69 @@ const tableData = {
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 1368
+          "cellType": "availability",
+          "value": 1310
         }
       ]
     },
     {
-      "rowId": "6759ff970274eb7a1b49917a",
+      "rowId": "675c0c3e12e3e3a38396ace4",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Collaire"
+          "value": "Exoplode"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 114.07
+          "value": 887.64
         },
         {
           "id": "category",
           "cellType": "category",
           "value": [
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1421
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff970b9dff1ed27b8237",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Geekfarm"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 1007.13
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange",
             "green",
-            "green"
+            "yellow"
           ]
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 906
+          "cellType": "availability",
+          "value": 196
         }
       ]
     },
     {
-      "rowId": "6759ff9716b2903e2c67efea",
+      "rowId": "675c0c3e284399d3a0e42838",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Rugstars"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 877.45
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 882
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3efc6a4cb858ba329f",
       "cells": [
         {
           "id": "product",
@@ -4947,7 +723,62 @@ const tableData = {
         {
           "id": "price",
           "cellType": "currency",
-          "value": 293.93
+          "value": 522.65
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "blue",
+            "red"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1460
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ed10afedb20a1c4cb",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Multiflex"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1692.24
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1082
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e74fb0f8468a9ed2e",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Zenthall"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1468.23
         },
         {
           "id": "category",
@@ -4958,102 +789,106 @@ const tableData = {
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 495
+          "cellType": "availability",
+          "value": 945
         }
       ]
     },
     {
-      "rowId": "6759ff97390395b591102565",
+      "rowId": "675c0c3ebda29d0f7ffe5e8f",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Orboid"
+          "value": "Firewax"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 1144.63
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 731
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff976303c197168f1d75",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Tourmania"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2408.06
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 526
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97fddf87a1b325a57c",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Snips"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2706.16
+          "value": 99.75
         },
         {
           "id": "category",
           "cellType": "category",
           "value": [
-            "green",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 603
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e5b1a415e7d79f676",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Trasola"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 539.13
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
             "orange",
-            "orange"
+            "red"
           ]
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 21
+          "cellType": "availability",
+          "value": 1451
         }
       ]
     },
     {
-      "rowId": "6759ff97a3668e82e3ade3f5",
+      "rowId": "675c0c3e088284aa33b3228e",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Sunclipse"
+          "value": "Utara"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 2489.56
+          "value": 2536.95
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange",
+            "red"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1491
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ea963405928f3d3af",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Zillactic"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1336.06
         },
         {
           "id": "category",
@@ -5064,23 +899,107 @@ const tableData = {
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 1041
+          "cellType": "availability",
+          "value": 743
         }
       ]
     },
     {
-      "rowId": "6759ff97830736584d513006",
+      "rowId": "675c0c3eeac512a877ba6130",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Netplax"
+          "value": "Naxdis"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 1020.45
+          "value": 1931.52
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "red",
+            "green",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 858
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e6998d0881b7ae34b",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Matrixity"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2596.87
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1325
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e43c9c498d2e7a35f",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Hivedom"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 940.69
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow",
+            "blue"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1418
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e256702d3116fd509",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Liquicom"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2840.07
         },
         {
           "id": "category",
@@ -5089,52 +1008,134 @@ const tableData = {
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 834
+          "cellType": "availability",
+          "value": 1415
         }
       ]
     },
     {
-      "rowId": "6759ff97e3c01008458a8f8e",
+      "rowId": "675c0c3e42d6b55ccdb6694e",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Atgen"
+          "value": "Roboid"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 1894.34
+          "value": 2696.89
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1473
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e49984d30931becd3",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Synkgen"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2852.48
         },
         {
           "id": "category",
           "cellType": "category",
           "value": [
             "orange",
-            "blue",
-            "orange"
+            "green"
           ]
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 957
+          "cellType": "availability",
+          "value": 53
         }
       ]
     },
     {
-      "rowId": "6759ff97324f8bdffd4fd881",
+      "rowId": "675c0c3e49ab0b1ea3fa1718",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Bytrex"
+          "value": "Protodyne"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 2398.47
+          "value": 2070.92
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green",
+            "blue"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 408
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e417acb35127c29ac",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Digitalus"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2139.28
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "red",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 737
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e90719ce11bee27d9",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Twiggery"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1060
         },
         {
           "id": "category",
@@ -5146,71 +1147,396 @@ const tableData = {
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 1178
+          "cellType": "availability",
+          "value": 122
         }
       ]
     },
     {
-      "rowId": "6759ff9746bdef78a0f74a6e",
+      "rowId": "675c0c3e04077d6e8490c100",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Harmoney"
+          "value": "Koffee"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 1611.14
+          "value": 1437.72
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 147
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3edaff6f41fcd28045",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Atgen"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1852.17
         },
         {
           "id": "category",
           "cellType": "category",
           "value": [
-            "orange",
             "orange",
             "blue"
           ]
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 1484
+          "cellType": "availability",
+          "value": 1128
         }
       ]
     },
     {
-      "rowId": "6759ff97cced94eecc1511f2",
+      "rowId": "675c0c3e59e8ddc6a8e7050f",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Plutorque"
+          "value": "Apextri"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 2571.83
+          "value": 1813.66
         },
         {
           "id": "category",
           "cellType": "category",
           "value": [
             "green",
+            "red"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1274
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e6aa3138cde985ced",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Phormula"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2495.61
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow",
+            "red",
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1462
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e88ce928769a2e582",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Marketoid"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1716.13
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1067
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e7a44300fc89a2ac0",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Zappix"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1227.29
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green",
+            "blue"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 271
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ef5732deb054890f9",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Hydrocom"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2941.81
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "red",
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 757
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e673fe7671b923804",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Zboo"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1088.34
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
             "blue",
             "green"
           ]
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 1459
+          "cellType": "availability",
+          "value": 95
         }
       ]
     },
     {
-      "rowId": "6759ff970054eb23d4194757",
+      "rowId": "675c0c3e8c4ffe5cfa28a5dd",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Gynko"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 647.14
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow",
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 656
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e9fe874ee188c54da",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Fleetmix"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 615.24
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "red"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 968
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e4c9d4b60d943f7e8",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Rodeocean"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1080.58
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1414
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e208333a3316240c2",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Steelfab"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1811.91
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 797
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ea3ea1719542ad51e",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Waterbaby"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2291.56
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1030
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e0256fac8a4d0dc6d",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Junipoor"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1126.19
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "red",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1111
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e3cdd22961016c7c4",
       "cells": [
         {
           "id": "product",
@@ -5220,36 +1546,167 @@ const tableData = {
         {
           "id": "price",
           "cellType": "currency",
-          "value": 1116.95
+          "value": 1722.98
         },
         {
           "id": "category",
           "cellType": "category",
           "value": [
-            "red",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 821
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ed1b54f24faa78342",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Medesign"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2234.95
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 709
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ee70b4449eba118fe",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Rockyard"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1990.83
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 51
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3eeefffabab38ea926",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Kegular"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1540.59
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 586
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ebd590e431641e6c0",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Temorak"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2728.95
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green",
+            "orange",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 406
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e88fc44a8bb60ce47",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Daisu"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 622.13
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green",
             "red",
             "orange"
           ]
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 1463
+          "cellType": "availability",
+          "value": 915
         }
       ]
     },
     {
-      "rowId": "6759ff97f103ad4af81fa66d",
+      "rowId": "675c0c3ec359511d973b14a8",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Supportal"
+          "value": "Zoinage"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 2601.43
+          "value": 2697.78
         },
         {
           "id": "category",
@@ -5258,51 +1715,791 @@ const tableData = {
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 1201
+          "cellType": "availability",
+          "value": 1289
         }
       ]
     },
     {
-      "rowId": "6759ff9751d3db34088583ac",
+      "rowId": "675c0c3e9aa30ef5715bad63",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Orbalix"
+          "value": "Flexigen"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 2119.44
+          "value": 612.48
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange",
+            "yellow",
+            "red"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 742
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e7417bf65f083476a",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Zillidium"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1022.3
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow",
+            "red"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 309
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e0263227fc682d40b",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Furnigeer"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2168.95
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green",
+            "blue"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1386
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e29eb68d9293e52eb",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Cowtown"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1060.91
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange",
+            "yellow",
+            "red"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 411
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e60bad5cda5ae1364",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Digigene"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2613.73
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange",
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 494
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e71a2e5302e914dc7",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Hopeli"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1035.75
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 902
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e8a8f6d2f99df12e4",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Vicon"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2532.85
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 757
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ebffc1630d65809c4",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Corecom"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2036.42
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "blue"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 332
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e0662e3ed5c7514b2",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Avenetro"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2683.25
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 459
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e0dc70dc02e5c864a",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Quailcom"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2874.33
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green",
+            "blue",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1458
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ebe87de378fdb514b",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Zolavo"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2833.06
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange",
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 316
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e777fb1ba5148d64f",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Waretel"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2250.47
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1341
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e2ce422fda3a16864",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Typhonica"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 715.5
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1363
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e484efbaaa476b638",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Makingway"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1526.84
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "red",
+            "blue"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 222
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e3459206eb12dd867",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Cubicide"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 282.87
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange",
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 567
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3eb1bfc3a17a947451",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Stockpost"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1195.59
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1011
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ee558cea959df8b01",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Spacewax"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2910.45
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "red",
+            "green",
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 75
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e511c028beb04e1f2",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Hawkster"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2580.75
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1268
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3eda45fad4e1346986",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Extrawear"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1669.3
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1152
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e61231668d1d9c19c",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Remotion"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 831.7
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1347
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e432beb37f2298b1f",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Exovent"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1515.57
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow",
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 167
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e19cf8c1b795af88e",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Niquent"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1765.79
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 54
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e9010d4a0ba60f2d9",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Veraq"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2429.51
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "red",
+            "orange",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1411
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e18dccc1e21039633",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Zaggles"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2668.49
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow",
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1160
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e51ef6ee76d179678",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Anocha"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1627.73
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 556
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ee80a8cb33fce3aa4",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Otherside"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2519.55
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "red",
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 975
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e58f4f6d074d5180b",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Automon"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1718.21
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 779
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e9caa808dbefa10ca",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Enormo"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2126.45
         },
         {
           "id": "category",
           "cellType": "category",
           "value": [
             "blue",
-            "blue"
+            "yellow",
+            "green"
           ]
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 1091
+          "cellType": "availability",
+          "value": 587
         }
       ]
     },
     {
-      "rowId": "6759ff97809b130b53fdc599",
+      "rowId": "675c0c3ef2de5897a5318c51",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Frolix"
+          "value": "Netbook"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 2795.23
+          "value": 845.92
         },
         {
           "id": "category",
@@ -5311,23 +2508,1308 @@ const tableData = {
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 932
+          "cellType": "availability",
+          "value": 1377
         }
       ]
     },
     {
-      "rowId": "6759ff97b0d17de8f420638d",
+      "rowId": "675c0c3eb150673fb6d8f5e9",
       "cells": [
         {
           "id": "product",
           "cellType": "text",
-          "value": "Bizmatic"
+          "value": "Concility"
         },
         {
           "id": "price",
           "cellType": "currency",
-          "value": 2662.47
+          "value": 1269.44
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "blue",
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 744
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e13ab35dfd7c7ae04",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Furnafix"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2272.32
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "blue"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1134
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e96c33482ca82b0fc",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Zenolux"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1489.49
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 74
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ea01932726a5e22f3",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Toyletry"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2534.46
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 444
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e7f9183d79ac37cb1",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Quonk"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1854.61
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 34
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3eed994583f79f28c0",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Opportech"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 616.37
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange",
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1070
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ea64299c61ebbe5b1",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Minga"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 159.81
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 740
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e36511a9f96afc008",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Pyrami"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2874.34
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "blue"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 334
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e07eedf80574e65a3",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Architax"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1466.34
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green",
+            "orange",
+            "red"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1004
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ef76432c885bdbd3f",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Senmao"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1682.42
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green",
+            "blue"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1098
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ec427dc345e652fad",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Digirang"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2118.35
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 417
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ed5a2c6f3616c7831",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Amril"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2713.44
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1164
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e2c9b64cd76c39d97",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Zentix"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1124.77
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1202
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ecb2136aec5bc8ba5",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Austech"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 109.51
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange",
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 297
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e15f83beaa81af5db",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Darwinium"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 940.87
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange",
+            "yellow",
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 243
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3edeab97efcc83500f",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Valpreal"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 474.88
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange",
+            "blue",
+            "red"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 278
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e0d7509dc2b4168b5",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Inventure"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2256.72
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1369
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e2ec5b9ccda02d682",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Nikuda"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1306.89
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 114
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e56ddff6a842639ba",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Assistix"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 147.04
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow",
+            "blue",
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 364
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e5bb78405e027318e",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Vinch"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 355.45
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "blue"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 643
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e8cf7e1216c035a8d",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Opticom"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1535.76
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "blue",
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 217
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e161b766e0f5beb46",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Quilch"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1314.31
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 468
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ec4278b37fe72315b",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Zinca"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1936.8
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 963
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e90b7d5a582637e6f",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Magnafone"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1380.83
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1452
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e7e223374dc1acc71",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Viagreat"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2574.35
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green",
+            "red"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 965
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e272472c11da333c0",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Imperium"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2261.96
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "blue"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1471
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3eeb21d7c07e25df17",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Solgan"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2118.31
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 31
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e813378432d290c5d",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Exiand"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 108.85
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 364
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e53eb8552989821d3",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Exospeed"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1052.62
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1070
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3eefbb552b4281ee51",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Utarian"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1779.96
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "blue",
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 19
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3eaa2ab2be175287b8",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Anixang"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 630.52
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1427
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ec4702e0846c340cc",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Furnitech"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 766.07
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow",
+            "blue"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 207
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ef47973c18e6cf004",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Fuelton"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 163.41
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 780
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ecbad15a8abdda79c",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Aclima"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 367.03
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange",
+            "green",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 50
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e4b97307fda8063ad",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Brainquil"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2755.32
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "blue",
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 991
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ec5b8aaac0edca229",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Fitcore"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 557.35
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 224
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e2ee995968cb24322",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Tropolis"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2738.77
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1380
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e0b3e23e5ecf0aaab",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Geostele"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2505.38
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange",
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 978
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3eb6de05cb57d833e0",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Signity"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1894.05
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 343
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ea83dcf41ec30e54d",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Sustenza"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1131.22
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 943
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e0d1979c605984d81",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Ultrimax"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2592.75
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 802
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e9a2f3071fe001a91",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Exozent"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 140.49
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "blue",
+            "red"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 582
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e782602903daa6adb",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Besto"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2983.44
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 180
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ed6b8bf3bd505fd7c",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Virxo"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 33.27
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 229
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e654dd56ee3b94b57",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Valreda"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2066.95
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 760
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e4bfc3f99a2ffc8c6",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Orbin"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 203.88
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "red",
+            "green",
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 582
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3eafc417d96802d5ea",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Mobildata"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1471.31
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange",
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1059
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ee501bc52d1767c18",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Isosphere"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1202
         },
         {
           "id": "category",
@@ -5339,13 +3821,1700 @@ const tableData = {
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 1010
+          "cellType": "availability",
+          "value": 964
         }
       ]
     },
     {
-      "rowId": "6759ff978723759780d7d427",
+      "rowId": "675c0c3e50f2e6d669a2fedc",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Halap"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 326.38
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1090
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ef5574f3646d3b5f7",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Geekmosis"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2175.34
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "blue",
+            "green",
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1080
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e82808c70a8b712f7",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Maximind"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1073.49
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 729
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e0539e75fa3bc5104",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Medmex"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2659.29
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow",
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 785
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ea82d07cb6952ff31",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Exposa"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 936.87
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 194
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ec429cdbbe540d8db",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Buzzness"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 143.68
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 997
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ea4b7b1b4a85d51b9",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Canopoly"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1471.49
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 172
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e5e9a669d630be0e7",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Bytrex"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1988.29
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "red"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 979
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e45daa4b13bce1540",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Cincyr"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 849.58
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 49
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e894c2ded98756d1c",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Eyeris"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 487.26
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 982
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ed43e4be3c152b2b4",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Earthpure"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1502.68
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 191
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ebe7d3cd40641fcb4",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Zillar"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2481.57
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "red",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 258
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e68a8eca79dd95aba",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Kog"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1157.73
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 605
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e6fa15b7a8bad4c65",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Unq"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 870.15
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow",
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 455
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ec20ac2a9e232d8d0",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Parleynet"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2299.83
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1060
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e57b4708f03c5f9ad",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Zentury"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1840.51
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 37
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e46976b64ec483837",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Keengen"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2850.4
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "red",
+            "orange",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1189
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e6557a68313e7dd80",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Centice"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 737.78
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 686
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ec7fc25e643f2e724",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Cuizine"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 980.79
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1105
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e312a045e1bbbf77c",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Zounds"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 340.73
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 58
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e1d4acf37b23f9337",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Xylar"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2668.57
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1297
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e5807d607cebc231e",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Slambda"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1375.83
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "red"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 338
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ed95e5ac47755d49b",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Infotrips"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2236.37
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 463
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ec8d22c0e035b9a4e",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Corepan"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1120.53
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 969
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e68dae4e861a84419",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Deminimum"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 790.13
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green",
+            "red"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1405
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3edc2b02dcb2538e27",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Pyramax"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1859.65
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "red",
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 699
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e61326cd4e263c15f",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Uni"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2934.03
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "red"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 354
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3edb2db6b5a7fe5878",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Nspire"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1671.63
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1250
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e48561bc75c0b6d54",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Uniworld"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 820.81
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 306
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e45e0ea758088fcd2",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Vidto"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2440.19
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 7
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e0bd5bea964cb112a",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Talae"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2663
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 827
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ec0637cbdf2e3ddbd",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Terragen"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1989.49
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1182
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e98a7f1f3ef1ec0f8",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Buzzmaker"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2655.46
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 487
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e11a1211086051484",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Printspan"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 77.38
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "red",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 306
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e953e724e38f55c80",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Greeker"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1554.93
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "blue",
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1367
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e19cac1d7c533ecfc",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Blurrybus"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1173.44
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 235
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e54b22627ab8f887d",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Cubix"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2198.51
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 576
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e63c45199a2b85790",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Kiggle"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1686.2
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow",
+            "green"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 446
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e01047109f830de8d",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Sultraxin"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 634.37
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1168
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e7f1375d5e8eac05c",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Helixo"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2540.98
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow",
+            "blue"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 564
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e1f07960256c551e6",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Panzent"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2689.61
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 853
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ed0247911508b31fa",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Housedown"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2502.39
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 227
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ed79710db6bbaec1e",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Quarmony"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1666.21
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange",
+            "green",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 115
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e2bcba40a11510283",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Digifad"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2297.43
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1153
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ee0fb6d8ea158570c",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Circum"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2343.85
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "blue"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1437
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ee49ca0f727c095cd",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Dognost"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 667.27
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "blue"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 766
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ea296a101a8827e92",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Powernet"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1555.43
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green",
+            "orange",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 590
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e2ec3d78ac97e3e52",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Zidant"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1244.75
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": []
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 67
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e4b797ec6009a01fe",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Poshome"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 133.02
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green",
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 777
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e475ed13b0e752f39",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Centregy"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 402.43
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green",
+            "red"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1134
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e916cb54b9d0f5dd9",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Extragene"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 212.33
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1120
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3efdbe8c5939ffeffa",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Softmicro"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 413.69
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "red",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1359
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e791f04ac02c305ea",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Euron"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1368.33
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1008
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e01af4405005423af",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Kyagoro"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1058.63
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow",
+            "blue"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 462
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e26b20a424faf7bac",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Tellifly"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 436.73
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "blue"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 242
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3eaec7f33715485f28",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Biohab"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1969.87
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow",
+            "red"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 468
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ee3eb98bc7a681f28",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Octocore"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1653.41
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "red",
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 30
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e15541c09e0020ea9",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Zerbina"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2879.78
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "green",
+            "blue",
+            "red"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 416
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3eef039e07f08b6e64",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Menbrain"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2568.47
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "red",
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 1071
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ed2061bce511f2c8b",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Xelegyl"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 1968.19
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow",
+            "green",
+            "orange"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 634
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ee23731351d302f67",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Overplex"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 838.35
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 287
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3e2fbbfa037790cbab",
+      "cells": [
+        {
+          "id": "product",
+          "cellType": "text",
+          "value": "Premiant"
+        },
+        {
+          "id": "price",
+          "cellType": "currency",
+          "value": 2721.89
+        },
+        {
+          "id": "category",
+          "cellType": "category",
+          "value": [
+            "yellow"
+          ]
+        },
+        {
+          "id": "stock",
+          "cellType": "availability",
+          "value": 258
+        }
+      ]
+    },
+    {
+      "rowId": "675c0c3ef83ec023dd42493f",
       "cells": [
         {
           "id": "product",
@@ -5355,63 +5524,7 @@ const tableData = {
         {
           "id": "price",
           "cellType": "currency",
-          "value": 1224.15
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "blue",
-            "green",
-            "green"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 781
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff974ecc547665a29b50",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Globoil"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 965.84
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "yellow"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1077
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97f56d82bdd19aacea",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Accusage"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 809.05
+          "value": 2932.85
         },
         {
           "id": "category",
@@ -5420,111 +5533,8 @@ const tableData = {
         },
         {
           "id": "stock",
-          "cellType": "integer",
-          "value": 598
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97e7751cdf43d57b5a",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Essensia"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 2170.7
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 808
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97f70d8ea154b75db0",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Digitalus"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 326.67
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": [
-            "orange",
-            "blue"
-          ]
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 503
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff97d2a82d4d9f905f88",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Electonic"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 919.55
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1297
-        }
-      ]
-    },
-    {
-      "rowId": "6759ff979a0d8c4514cca5dd",
-      "cells": [
-        {
-          "id": "product",
-          "cellType": "text",
-          "value": "Vetron"
-        },
-        {
-          "id": "price",
-          "cellType": "currency",
-          "value": 971.56
-        },
-        {
-          "id": "category",
-          "cellType": "category",
-          "value": []
-        },
-        {
-          "id": "stock",
-          "cellType": "integer",
-          "value": 1214
+          "cellType": "availability",
+          "value": 193
         }
       ]
     }

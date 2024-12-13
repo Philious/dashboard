@@ -33,9 +33,9 @@
 @media (prefers-color-scheme: light) {
   --background-color: var(--white);
   --border: 0.0625rem solid var(--n-700);
-  --header-color: var(--n-700);
+  --header-color: var(--white);
   --input-border: 0.0625rem solid var(--n-600);
-  --context-menu-border-color: #fff;
+  --context-menu-border-color: var(--white);
 }
 
 }

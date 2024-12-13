@@ -116,6 +116,8 @@ const onScroll = () => handleScroll(scrollContainer, props.store.updateData);
   height: 80vh;
   overflow-y: scroll;
   border-radius: 0.25rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06),
+    0 4px 16px rgba(0, 0, 0, 0.03);
 }
 
 .table {
@@ -124,6 +126,7 @@ const onScroll = () => handleScroll(scrollContainer, props.store.updateData);
   background-color: $background;
   border-radius: 0.25rem;
   min-height: 100%;
+
   place-content: start;
   &.no-items {
     place-content: center;

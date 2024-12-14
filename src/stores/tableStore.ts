@@ -29,7 +29,7 @@ export const useDataStore = defineStore('table', () => {
       const response = await fetchData(currentPage.value, 20);
       if (!response?.data) return;
       const data = response.data;
-      console.log(response);
+
       headers.value = response.headers;
       if (data.length > 0) {
         internalItems.value = [...items.value, ...data];

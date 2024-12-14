@@ -17,7 +17,7 @@ export const thinData = (data: Row[], searchString: string, filter: string) => {
 export const handleScroll = (scrollContainer: Ref<HTMLElement | null, HTMLElement | null>, updateData: () => Promise<void>) => {
   if (!scrollContainer.value) return;
   const { scrollTop, scrollHeight, clientHeight } = scrollContainer.value;
-  console.log(scrollTop + clientHeight, scrollHeight);
+
   if (scrollTop + clientHeight >= scrollHeight - 10) {
     updateData();
   }

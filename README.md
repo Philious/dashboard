@@ -25,7 +25,7 @@ Adding network delay => .env => VITE_DELAY=<-delay->;
 - Add filters for category and availability status, allowing users to select multiple filters at once.  
 ✔ Include a sort feature that allows users to sort products by price.  
 ✔ Infinite Scrolling or Pagination: Allow users to load additional products as they scroll down (infinite scroll) or add a “Load More” button at the end of the product list.  
-x Cache the product data so it doesn’t refetch on re-renders. Implement client-side caching.  
+✔ Cache the product data so it doesn’t refetch on re-renders. Implement client-side caching.  
 ✔ Dark Mode.  
 ✔ Write unit tests.  
 
